@@ -49,7 +49,7 @@ public class LoadNextLevel : MonoBehaviour
         {
             GameManager.Instance.LastLevel = SceneManager.GetActiveScene().buildIndex;
             GameManager.Instance.CurrentLevel = SceneManager.GetActiveScene().buildIndex;
-            GameManager.Instance.CompletedLevelsList.Add(SceneManager.GetActiveScene().buildIndex-1);
+            GameManager.Instance.CompletedLevelsList.Add(SceneManager.GetActiveScene().buildIndex);
             GameManager.Instance.Save();
             loadingOperation = SceneManager.LoadSceneAsync("Level_" + (SceneManager.GetActiveScene().buildIndex ));
             loading = true;

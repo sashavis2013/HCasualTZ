@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -110,6 +111,11 @@ public class GameManager : MonoBehaviour, ISaveable
         SaveJsonData(this);
     }
 
+    private void OnDisable()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void Save()
     {
         SaveJsonData(this);
@@ -121,6 +127,7 @@ public class GameManager : MonoBehaviour, ISaveable
         {
             if (destroyedItems == allItems)
             {
+                Time.timeScale = 0.25f;
                 LastLevel = SceneManager.GetActiveScene().buildIndex;
                 levelComplete = true;
                 GameUi.SetActive(false);
